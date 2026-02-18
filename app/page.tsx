@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { generateSEO } from "@/lib/seo"
 import Header from "@/components/layout/Header"
 import Main from "@/components/layout/Main"

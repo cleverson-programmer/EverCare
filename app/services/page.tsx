@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { generateSEO } from "@/lib/seo"
 import ServicesCards from "@/components/layout/ServicesCards"
 import Footer from "@/components/layout/Footer"

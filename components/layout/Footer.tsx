@@ -1,3 +1,4 @@
+"use client";
 import { Twitter, Linkedin, Github, Facebook, Instagram } from "lucide-react";
 import Image from "next/image";
 const footerLinks = ["Products", "Studio", "Clients", "Pricing", "Blog", "Privacy", "Terms"];

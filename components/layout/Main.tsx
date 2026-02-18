@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { HeroParallax, Product } from "@/components/ui/hero-parallax"
 

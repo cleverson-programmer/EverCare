@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Navbar from "@/components/common/Navbar"
 import { ScrollProgress } from "@/components/ui/scroll-progress"

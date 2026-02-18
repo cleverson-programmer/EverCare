@@ -1,3 +1,4 @@
+"use client";
 import PricingPage from "@/components/common/PricingPage";
 
 const PricingSection = () => {
