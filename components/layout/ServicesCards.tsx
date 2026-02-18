@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -18,8 +18,6 @@ import SectionSelector from "@/components/common/SectionSelector";
 import ServiceCard from "@/components/common/ServiceCard";
 import CleaningForm from "@/components/common/CleaningForm";
 import HomeCareForm from "@/components/common/HomeCareForm";
-import ServiceTabContent from "@/components/common/ServiceTabContent";
-import { Tabs } from "../ui/tabs";
 
 type Section = "cleaning" | "homecare" | null;
 
@@ -90,29 +88,10 @@ const homeCareServices = [
 ];
 
 const ServicesCards = () => {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const sectionParam = searchParams.get("section") as Section | null;
-
-  const [selectedSection, setSelectedSection] = useState<Section>(() => {
-    return sectionParam === "homecare" || sectionParam === "cleaning"
-      ? (sectionParam as Section)
-      : "cleaning";
-  });
-
-  useEffect(() => {
-    if (!sectionParam) return;
-
-    if ((sectionParam === "cleaning" || sectionParam === "homecare") && sectionParam !== selectedSection) {
-      setSelectedSection(sectionParam as Section);
-    }
-  }, [sectionParam, selectedSection]);
+  const [selectedSection, setSelectedSection] = useState<Section>("cleaning");
 
   const handleSectionChange = (section: Section) => {
     setSelectedSection(section);
-    router.push(`${pathname}?section=${section}`); // keep URL in sync
   };
 
   return (
@@ -183,19 +162,6 @@ const ServicesCards = () => {
           )}
         </AnimatePresence>
       </div>
-      {/* <Tabs
-          tabs={cleaningServices.map((service) => ({
-            title: service.title,
-            value: service.title,
-            content: (
-              <ServiceTabContent
-                title={service.title}
-                description={service.description}
-                image="public/assets/images/main1.jpg"
-              />
-            ),
-          }))}
-        /> */}
     </>
   );
 };
