@@ -1,4 +1,3 @@
-"use client";
 import ContactFAQSection from '@/components/layout/ContactFAQSection'
 import { JSX} from 'react'
 
