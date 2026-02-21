@@ -4,6 +4,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
+import { Notification } from "@/components/common/Notification";
+import { useNotification } from "@/hooks/useNotification";
+import { Loader2 } from "lucide-react";
 
 interface HomeCareFormProps {
   serviceType: string;
@@ -16,6 +19,10 @@ const assistanceTypes: Record<string, string[]> = {
 };
 
 const HomeCareForm = ({ serviceType }: HomeCareFormProps) => {
+
+  const [loading, setLoading] = useState(false);
+  const { notification, showNotification, hideNotification } = useNotification();
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -37,12 +44,35 @@ const HomeCareForm = ({ serviceType }: HomeCareFormProps) => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Home care form submitted:", { serviceType, ...formData });
+    setLoading(true);
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          serviceType,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        showNotification("Solicitação enviada com sucesso!", "success");
+      } else {
+        showNotification("Erro ao enviar. Tente novamente.", "error");
+      }
+    } catch (error) {
+      showNotification("Erro inesperado. Tente novamente.", "error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
+  <>
     <form onSubmit={handleSubmit} className="space-y-4">
       <h4 className="font-semibold text-foreground text-sm">Dados do Responsável</h4>
 
@@ -127,10 +157,23 @@ const HomeCareForm = ({ serviceType }: HomeCareFormProps) => {
         <Textarea id="hc-obs" value={formData.observations} onChange={(e) => setFormData({ ...formData, observations: e.target.value })} placeholder="Condições médicas, necessidades especiais..." className="mt-1" rows={3} />
       </div>
 
-      <button type="submit" className="w-full py-2.5 bg-homecare text-homecare-foreground rounded-lg font-semibold text-sm hover:bg-homecare/90 transition-colors">
-        Enviar Solicitação
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full py-2.5 cursor-pointer bg-primary text-white rounded-lg font-semibold text-sm 
+        hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-70"
+      >
+        {loading && <Loader2 size={16} className="animate-spin" />}
+        {loading ? "Enviando..." : "Enviar Solicitação"}
       </button>
     </form>
+    <Notification
+      message={notification.message}
+      type={notification.type}
+      isVisible={notification.isVisible}
+      onClose={hideNotification}
+    />
+  </>
   );
 };
 

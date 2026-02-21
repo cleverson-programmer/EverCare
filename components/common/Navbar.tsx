@@ -107,17 +107,16 @@ export default function Navbar() {
   }, [mobileOpen])
 
   return (
-    <header className="w-full sticky top-0 z-50 hover:bg-white dark:bg-blac">
-      <div className="flex items-center justify-between px-6 py-3 max-w-7xl mx-auto">
+    <header className="w-full sticky top-0 z-50 hover:bg-white dark:bg-black">
+      <div className="flex items-center justify-between px-6 h-16 md:h-18 lg:h-20 max-w-7xl mx-auto">
 
         {/* LOGO */}
         <Link href="/" className="flex items-center">
-          <Image
-            src="/assets/images/logo.svg"
-            alt="Company Logo"
-            width={120}
-            height={120}
-          />
+           <img
+              src="/assets/images/logo.svg"
+              alt="Company Logo"
+              className="h-28 md:h-30 lg:h-36 xl:h-40 w-auto"
+            />
         </Link>
 
         {/* DESKTOP MENU */}

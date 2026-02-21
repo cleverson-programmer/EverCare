@@ -41,7 +41,7 @@ export function StatsSection() {
               Projects Completed
             </div>
             <NumberTicker
-              value={1250}
+              value={50}
               delay={0.2}
               className="text-5xl font-bold text-primary"
             />
@@ -102,7 +102,7 @@ export function StatsSection() {
           {/* Componentes */}
           <div className="flex justify-center">
             <NumberTicker
-              value={1250}
+              value={50}
               delay={0.2}
               className="text-5xl font-bold text-primary"
             />

@@ -26,6 +26,17 @@ const services: ServicePlan[] = [
     ],
   },
   {
+    name: "Home Care Services",
+    description: "Personalized in-home support and assistance services.",
+    features: [
+      { text: "Daily living assistance" },
+      { text: "Medication reminders" },
+      { text: "Light housekeeping" },
+      { text: "Companionship care" },
+      { text: "Personal hygiene support" },
+    ],
+  },
+  {
     name: "Commercial Office Cleaning",
     description: "Professional janitorial services for offices and workspaces.",
     features: [
@@ -46,18 +57,7 @@ const services: ServicePlan[] = [
       { text: "Surface polishing" },
       { text: "Final inspection detailing" },
     ],
-  },
-  {
-    name: "Home Care Services",
-    description: "Personalized in-home support and assistance services.",
-    features: [
-      { text: "Daily living assistance" },
-      { text: "Medication reminders" },
-      { text: "Light housekeeping" },
-      { text: "Companionship care" },
-      { text: "Personal hygiene support" },
-    ],
-  },
+  }
 ];
 
 const PricingCard = ({

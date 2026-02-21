@@ -4,6 +4,9 @@ import Main from "@/components/layout/Main"
 import { HomeBentoSection } from "@/components/layout/HomeBentoSection"
 import PricingSection from "@/components/layout/PricingSection"
 import TestimonialsSection from "@/components/layout/CommentSection"
+import WeAreSection from "@/components/layout/WeAreSection"
+import AboutUsSection from "@/components/layout/AboutSection"
+import TagsSection from "@/components/layout/TagsSection"
 import StatsSection from "@/components/layout/StatsSection"
 import ContactFAQSection from "@/components/layout/ContactFAQSection"
 import Footer from "@/components/layout/Footer"
@@ -41,6 +44,9 @@ export default function LandingPage() {
       <HomeBentoSection />
       <PricingSection />
       <TestimonialsSection />
+      <WeAreSection />
+      <AboutUsSection />
+      <TagsSection />
       <StatsSection />
       <ContactFAQSection />
       <Footer />

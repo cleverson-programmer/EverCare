@@ -21,7 +21,7 @@ export default function Header() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/assets/video/video-header.mp4" type="video/mp4" />
+        <source src="/assets/video/video-header2.mp4" type="video/mp4" />
       </video>
 
       {/* DARK OVERLAY */}
@@ -72,7 +72,7 @@ export default function Header() {
 
         {/* RESPONSIVE VIDEO MASK */}
         <VideoMask
-          src="/assets/video/video-header.mp4"
+          src="/assets/video/video-header2.mp4"
           maskSrc="/assets/images/logo.svg"
           className="
             absolute

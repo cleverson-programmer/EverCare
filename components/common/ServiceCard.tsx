@@ -50,12 +50,20 @@ const ServiceCard = ({ icon: Icon, title, description, theme, children }: Servic
         </div>
         <button
           onClick={() => setExpanded(!expanded)}
-          className={`mt-4 w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-sm font-semibold transition-all ${t.button}`}
+          className={`mt-4 w-full flex cursor-pointer items-center justify-center gap-2 
+          py-2.5 px-4 rounded-lg text-sm font-semibold transition-all duration-300
+          ${
+            expanded
+              ? "bg-red-500 text-white hover:bg-red-600"
+              : "bg-green-400 text-white hover:bg-green-500"
+          }`}
         >
           {expanded ? "Fechar" : "Solicitar Orçamento"}
           <ChevronDown
             size={16}
-            className={`transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
+            className={`transition-transform duration-300 ${
+              expanded ? "rotate-180" : ""
+            }`}
           />
         </button>
       </div>
