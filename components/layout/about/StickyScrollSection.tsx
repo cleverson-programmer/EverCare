@@ -49,12 +49,13 @@ const content = [
 const StickyScrollSection = () => {
   return (
     <section className="py-20 md:py-28 bg-background">
-      <div className="container mx-auto px-6 mb-12 text-center">
-        <p className="text-accent font-body text-sm tracking-[0.2em] uppercase mb-3">
+      <div className="container mx-auto px-6 mb-20 text-center">
+        <p className="text-secondary text-sm md:text-base tracking-[0.25em] uppercase mb-4 font-semibold">
           What We Offer
         </p>
-        <h2 className="font-display text-3xl md:text-4xl text-foreground font-semibold">
-          Our Services in Detail
+
+        <h2 className="text-4xl md:text-6xl lg:text-7xl text-foreground font-bold leading-tight">
+          Our <span className="emotional">Services</span> in Detail
         </h2>
       </div>
       <div className="max-w-6xl mx-auto px-4">

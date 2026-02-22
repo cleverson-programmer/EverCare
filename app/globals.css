@@ -7,7 +7,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-outfit);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -57,7 +57,7 @@
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite
 ;
-  @keyframes marquee {
+@keyframes marquee {
   from {
     transform: translateX(0);}
   to {
@@ -69,105 +69,86 @@
     transform: translateY(calc(-100% - var(--gap)));}}}
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.75rem;
 
-  /* Base */
-  --background: #FFFFFF;
-  --foreground: #255271; /* Deep Blue */
+  /* Fundo acolhedor */
+  --background: #F6F4EF; /* Off-white creme */
+  --foreground: #1E3A46; /* Azul petróleo profundo */
 
   /* Cards */
   --card: #FFFFFF;
-  --card-foreground: #255271;
+  --card-foreground: #1E3A46;
 
   --popover: #FFFFFF;
-  --popover-foreground: #255271;
+  --popover-foreground: #1E3A46;
 
-  /* Primary - EverCare Blue */
-  --primary: #167DD6;
+  /* Primary - Azul Petróleo */
+  --primary: #1E3A46;
   --primary-foreground: #FFFFFF;
 
-  /* Secondary - EverCare Green */
-  --secondary: #9CC444;
-  --secondary-foreground: #FFFFFF;
+  /* Secondary - Verde Sálvia */
+  --secondary: #8FAF9F;
+  --secondary-foreground: #1E3A46;
 
-  /* Accent - Lime */
-  --accent: #BAD34F;
-  --accent-foreground: #255271;
+  /* Accent - Sálvia mais claro */
+  --accent: #B7CFC3;
+  --accent-foreground: #1E3A46;
 
   /* Muted */
-  --muted: #F4F8FB;
-  --muted-foreground: #848182; /* slogan gray */
+  --muted: #ECE9E2;
+  --muted-foreground: #6B7280;
 
-  /* Borders / Inputs */
-  --border: #E5EEF5;
-  --input: #E5EEF5;
-  --ring: #167DD6;
+  /* Borders */
+  --border: #E2DED6;
+  --input: #E2DED6;
+  --ring: #1E3A46;
 
   /* Destructive */
   --destructive: #DC2626;
 
   /* Charts */
-  --chart-1: #167DD6;
-  --chart-2: #9CC444;
-  --chart-3: #46AFAE;
-  --chart-4: #4297BF;
-  --chart-5: #3B80B7;
+  --chart-1: #1E3A46;
+  --chart-2: #8FAF9F;
+  --chart-3: #B7CFC3;
+  --chart-4: #6D8F82;
+  --chart-5: #A4C3B2;
 
   /* Sidebar */
-  --sidebar: #F8FBFF;
-  --sidebar-foreground: #255271;
-  --sidebar-primary: #167DD6;
+  --sidebar: #F2EFE8;
+  --sidebar-foreground: #1E3A46;
+  --sidebar-primary: #1E3A46;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #BAD34F;
-  --sidebar-accent-foreground: #255271;
-  --sidebar-border: #E5EEF5;
-  --sidebar-ring: #167DD6;
+  --sidebar-accent: #B7CFC3;
+  --sidebar-accent-foreground: #1E3A46;
+  --sidebar-border: #E2DED6;
+  --sidebar-ring: #1E3A46;
 }
 
 .dark {
-  --background: #0B0B0B;
-  --foreground: #FFFFFF;
+  --background: #0F1E24;
+  --foreground: #F5F5F5;
 
-  --card: #111111;
+  --card: #13262E;
   --card-foreground: #FFFFFF;
 
-  --popover: #111111;
+  --popover: #13262E;
   --popover-foreground: #FFFFFF;
 
-  /* Primary mantém identidade */
-  --primary: #167DD6;
-  --primary-foreground: #FFFFFF;
+  --primary: #8FAF9F;
+  --primary-foreground: #0F1E24;
 
-  /* Secondary verde mais vibrante no dark */
-  --secondary: #BAD34F;
-  --secondary-foreground: #0B0B0B;
+  --secondary: #1E3A46;
+  --secondary-foreground: #FFFFFF;
 
-  --accent: #46AFAE;
+  --accent: #6D8F82;
   --accent-foreground: #FFFFFF;
 
-  --muted: #1A1A1A;
-  --muted-foreground: #848182;
+  --muted: #1B2E36;
+  --muted-foreground: #9CA3AF;
 
-  --border: #1F2937;
-  --input: #1F2937;
-  --ring: #167DD6;
-
-  --destructive: #EF4444;
-
-  --chart-1: #167DD6;
-  --chart-2: #9CC444;
-  --chart-3: #46AFAE;
-  --chart-4: #4297BF;
-  --chart-5: #3B80B7;
-
-  --sidebar: #111111;
-  --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: #167DD6;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #46AFAE;
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #1F2937;
-  --sidebar-ring: #167DD6;
+  --border: #1F343C;
+  --input: #1F343C;
+  --ring: #8FAF9F;
 }
 
 @layer base {
@@ -178,6 +159,23 @@
   body {
     @apply bg-background text-foreground;
     @apply bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-outfit);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    font-family: var(--font-outfit);
+    font-weight: 400;
+  }
+
+  .emotional {
+    font-family: var(--font-fraunces);
+    font-style: italic;
+    font-weight: 600;
   }
 }
 
