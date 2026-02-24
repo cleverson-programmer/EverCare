@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown, Sparkles, Heart, Menu as MenuIcon, X } from "lucide-react"
+import { usePathname } from "next/navigation"
 
 import US from "country-flag-icons/react/3x2/US"
 import BR from "country-flag-icons/react/3x2/BR"
@@ -34,7 +35,7 @@ function LanguageDropdown({ isNavbarHovered }: { isNavbarHovered: boolean }) {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
-  // Adaptado: Se hover, usa fundo do tema (Branco no Light, Escuro no Dark)
+  //Se hover, usa fundo do tema (Branco no Light, Escuro no Dark)
   const colorClasses = !isNavbarHovered 
     ? "text-white bg-transparent hover:bg-white/10" 
     : "bg-white text-foreground dark:bg-background dark:text-foreground border border-border dark:border-white/10 shadow-sm"
@@ -57,8 +58,10 @@ function LanguageDropdown({ isNavbarHovered }: { isNavbarHovered: boolean }) {
             initial={{ opacity: 0, y: 6, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 6, scale: 0.95 }}
-            className="absolute right-0 top-[calc(100%+6px)] z-50 flex flex-col gap-1 p-1.5 bg-card border border-border rounded-xl shadow-xl min-w-[80px]"
-          >
+            className="absolute right-0 z-50 flex flex-col gap-1 p-1.5 
+            bg-card border border-border rounded-xl shadow-xl min-w-[80px]
+            bottom-[calc(100%+6px)] lg:bottom-auto
+            lg:top-[calc(100%+6px)]">
             {languages.map((lang) => (
               <button
                 key={lang.code}
@@ -90,22 +93,36 @@ export default function Navbar() {
   const cleaningServices = servicesData.filter(s => s.theme === "cleaning")
   const homecareServices = servicesData.filter(s => s.theme === "homecare")
 
+  const pathname = usePathname()
+
+  const isSolidNavbar =
+    pathname.startsWith("/services") ||
+    pathname.startsWith("/about") ||
+    pathname.startsWith("/contact")
+
   // Botão de Tema adaptado para bg-background no modo escuro
   const themeToggleClasses = cn(
-    "p-2 rounded-lg transition-all duration-300 border",
-    !navState.isHovered 
+  "p-2 rounded-lg transition-all duration-300 border",
+  isSolidNavbar
+    ? "bg-white text-foreground border-border dark:bg-background dark:text-foreground dark:border-white/10 shadow-sm"
+    : !navState.isHovered 
       ? "text-white bg-transparent border-transparent hover:bg-white/10" 
       : "bg-white text-foreground border-border dark:bg-background dark:text-foreground dark:border-white/10 shadow-sm"
   )
+
+  const isNavbarActive = isSolidNavbar || navState.isHovered
 
   return (
     <header
       onMouseEnter={() => setNavState(prev => ({ ...prev, isHovered: true }))}
       onMouseLeave={() => setNavState(prev => ({ ...prev, isHovered: false, activeMenu: null }))}
       className={cn(
-        "w-full sticky top-0 z-50 transition-all duration-300",
-        // CORREÇÃO AQUI: Agora usa bg-background no Dark
-        navState.isHovered ? "bg-white dark:bg-background shadow-md border-b dark:border-white/5" : "bg-transparent"
+        "w-full fixed top-0 lg:relative z-50 transition-all duration-300",
+        isSolidNavbar
+          ? "bg-white dark:bg-background shadow-md border-b dark:border-white/5"
+          : navState.isHovered
+            ? "bg-white dark:bg-background shadow-md border-b dark:border-white/5"
+            : "bg-transparent"
       )}
     >
       <div className="flex items-center justify-between px-6 h-16 md:h-18 lg:h-20 max-w-7xl mx-auto relative">
@@ -116,7 +133,10 @@ export default function Navbar() {
 
         {/* DESKTOP MENU */}
         <div className="hidden lg:block">
-          <Menu setActive={(item) => setNavState(prev => ({ ...prev, activeMenu: item }))} isHovered={navState.isHovered}>
+          <Menu
+            setActive={(item) => setNavState(prev => ({ ...prev, activeMenu: item }))}
+            isHovered={isNavbarActive}
+          >
             {["Home", "Services", "About", "Contact"].map((item) => (
               <div key={item} className="relative group">
                 <MenuItem setActive={(val) => setNavState(prev => ({ ...prev, activeMenu: val }))} active={navState.activeMenu} item={item} href={item === "Home" ? "/" : `/${item.toLowerCase()}`}>
@@ -163,7 +183,9 @@ export default function Navbar() {
             onClick={() => setNavState(prev => ({ ...prev, mobileOpen: true }))}
             className={cn(
               "lg:hidden w-10 h-10 flex items-center justify-center rounded-lg transition-colors",
-              navState.isHovered ? "text-foreground dark:text-foreground" : "text-white"
+              isSolidNavbar || navState.isHovered
+              ? "text-foreground dark:text-foreground"
+              : "text-white"
             )}
           >
             <MenuIcon size={24} />

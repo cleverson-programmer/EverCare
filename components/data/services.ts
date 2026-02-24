@@ -102,6 +102,41 @@ export const servicesData: ServiceData[] = [
       },
     ],
   },
+    {
+    slug: "limpeza-pos-construcao",
+    theme: "cleaning",
+    badge: "Cleaning Services",
+    heroTitle: "Limpeza Pós-Construção",
+    heroSubtitle: "Ambientes prontos para uso, sem resíduos de construção.",
+    heroDescription:
+      "Serviço especializado para remoção de poeira, detritos e resíduos de construção após reformas ou obras. Deixe seu espaço limpo, seguro e pronto para ser utilizado.",
+    items: [
+      {
+        icon: Building2,
+        title: "Limpeza de Predios",
+        description: "Remoção completa de resíduos de construção, poeira e detritos em ambientes recém-construídos.",
+        theme: "cleaning",
+      },
+      {
+        icon: Sparkles,
+        title: "Limpeza de Condomínio",
+        description: "Áreas comuns, garagens, escadas e jardins com planos mensais personalizados.",
+        theme: "cleaning",
+      },
+      {
+        icon: Home,
+        title: "Limpeza de Clínicas",
+        description: "Higienização especializada com foco em biossegurança e conformidade sanitária.",
+        theme: "cleaning",
+      },
+      {
+        icon: Wind,
+        title: "Limpeza de Vidros",
+        description: "Lavagem externa e interna de fachadas envidraçadas com equipamentos especializados.",
+        theme: "cleaning",
+      },
+    ],
+  },
   {
     slug: "assistencia-domiciliar",
     theme: "homecare",

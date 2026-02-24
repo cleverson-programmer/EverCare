@@ -88,7 +88,7 @@ export default function Header() {
       </svg>
 
       {/* RESPONSIVE VIDEO MASK */}
-      <VideoMask
+      {/* <VideoMask
         src="/assets/video/video-header2.mp4"
         maskSrc="/assets/images/logo.svg"
         className="
@@ -109,7 +109,7 @@ export default function Header() {
           lg:-bottom-4
           pointer-events-none
         "
-      />
+      /> */}
     </div>
     </header>
   )

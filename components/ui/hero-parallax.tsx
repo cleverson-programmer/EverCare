@@ -78,7 +78,7 @@ export const HeroParallax = ({
         backgroundColor:
           selectedService === "care"
             ? "#e1f1bb"
-            : "#F3F4F6", // azul claro atual (ajuste se quiser outro tom)
+            : "#F3F4F6",
       }}
       transition={{
         duration: 0.6,
@@ -114,7 +114,7 @@ export const HeroParallax = ({
           ))}
         </motion.div>
 
-        <motion.div className="flex flex-row mb-20 space-x-20">
+        {/* <motion.div className="flex flex-row mb-20 space-x-20">
           {secondRow.map((product) => (
             <ProductCard
               key={product.title}
@@ -132,7 +132,7 @@ export const HeroParallax = ({
               translate={translateX}
             />
           ))}
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </motion.div>
   );
@@ -178,12 +178,12 @@ export const Header = ({ selectedService, onChange }: HeaderProps) => {
         </div>
 
         {/* Toggle */}
-        <div className="flex md:justify-end">
+        {/* <div className="flex md:justify-end">
           <ServiceToggle
             selected={selectedService}
             onChange={onChange}
           />
-        </div>
+        </div> */}
 
       </div>
     </div>

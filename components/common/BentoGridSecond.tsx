@@ -2,8 +2,10 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { Compare } from "@/components/ui/compare";
-import { GiMagicBroom, GiFishBucket, GiVacuumCleaner } from "react-icons/gi";
-import { IoWaterSharp } from "react-icons/io5";
+import { GiFamilyHouse } from "react-icons/gi";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { TbAirConditioning } from "react-icons/tb";
+import { BsBuildings } from "react-icons/bs";
 
 export default function BentoGridSecond() {
   return (
@@ -29,52 +31,52 @@ const Skeleton = () => (
 
 const items = [
   {
-    title: "Before & After Deep Cleaning",
-    description: "See the transformation after our professional deep cleaning service.",
+    title: "Commercial Dumpster Cleaning",
+    description: "Professional high-pressure washing and sanitization to eliminate grease, bacteria, and persistent odors — keeping your commercial waste areas clean, compliant, and pest-free.",
     header: (
       <Compare
       firstImage="/assets/images/before1.jpeg"
       secondImage="/assets/images/after1.jpeg"
       slideMode="hover"
-      className="w-full h-full object-cover" // h-full agora preenche o container de 52rem do pai
+      className="w-full h-full object-cover"
     />
     ),
     className: "md:col-span-1",
-    icon: <GiMagicBroom className="h-4 w-4 text-neutral-500" />,
+    icon: <RiDeleteBin6Line className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "Kitchen Restoration",
-    description: "Professional kitchen cleaning results.",
+    title: "HVAC System Deep Cleaning",
+    description: "Comprehensive duct and vent cleaning to remove contaminants, improve airflow efficiency, and promote healthier indoor air quality for residential and commercial properties.",
     header: (
       <Compare
         firstImage="/assets/images/before2.jpeg"
         secondImage="/assets/images/after2.jpeg"
-        slideMode="drag"
+        slideMode="hover"
         showHandlebar
         className="w-full h-full object-cover"
       />
     ),
     className: "md:col-span-1",
-    icon: <GiFishBucket  className="h-4 w-4 text-neutral-500" />,
+    icon: <TbAirConditioning className="h-4 w-4 text-neutral-500" />,
   },
     {
-    title: "Kitchen Restoration",
-    description: "Professional kitchen cleaning results.",
+    title: "Floor Surface Restoration",
+    description: "Advanced deep cleaning and surface renewal for tile, grout, hardwood, and vinyl — restoring appearance while extending the lifespan of your flooring.",
     header: (
       <Compare
         firstImage="/assets/images/before3.jpeg"
         secondImage="/assets/images/after3.jpeg"
-        slideMode="drag"
+        slideMode="hover"
         showHandlebar
         className="w-full h-full object-cover"
       />
     ),
     className: "md:col-span-1",
-    icon: <GiVacuumCleaner className="h-4 w-4 text-neutral-500" />,
+    icon: <GiFamilyHouse className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "Before & After Deep Cleaning",
-    description: "See the transformation after our professional deep cleaning service.",
+    title: "Professional Commercial Cleaning",
+    description: "Customized cleaning solutions for offices, retail spaces, and facilities — delivering consistent, high-standard sanitation that reflects your business professionalism.",
     header: (
       <Compare
         firstImage="/assets/images/before4.jpeg"
@@ -84,6 +86,6 @@ const items = [
       />
     ),
     className: "md:col-span-1",
-    icon: <IoWaterSharp className="h-4 w-4 text-neutral-500" />,
+    icon: <BsBuildings className="h-4 w-4 text-neutral-500" />,
   }
 ];

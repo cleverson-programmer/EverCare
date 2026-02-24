@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface PlanFeature {
   text: string;
@@ -11,51 +12,61 @@ interface ServicePlan {
   name: string;
   description: string;
   features: PlanFeature[];
+  buttonLabel: string;
+  slug: string;
 }
 
 const services: ServicePlan[] = [
   {
-    name: "Residential Cleaning Services",
-    description: "Comprehensive in-home professional cleaning solutions.",
+    name: "Residential Cleaning",
+    description: "Your home, spotless and stress-free.",
+    buttonLabel: "Get a Free Estimate",
+    slug: "limpeza-residencial",
     features: [
-      { text: "Standard & deep cleaning" },
-      { text: "Kitchen & bathroom sanitization" },
-      { text: "Dusting & surface disinfection" },
-      { text: "Vacuuming & mopping" },
-      { text: "Recurring maintenance plans" },
+      { text: "Standard & deep cleaning solutions" },
+      { text: "Complete kitchen & bathroom sanitization" },
+      { text: "Dusting, vacuuming, & floor disinfection" },
+      { text: "Allergen & fine dust removal" },
+      { text: "Flexible weekly or bi-weekly maintenance" },
     ],
   },
   {
-    name: "Home Care Services",
-    description: "Personalized in-home support and assistance services.",
+    name: "Home Care Support",
+    description: "Compassionate assistance in the comfort of home.",
+    buttonLabel: "Schedule a Consultation",
+    slug: "assistencia-domiciliar",
     features: [
-      { text: "Daily living assistance" },
-      { text: "Medication reminders" },
-      { text: "Light housekeeping" },
-      { text: "Companionship care" },
-      { text: "Personal hygiene support" },
+      { text: "Daily living & mobility assistance" },
+      { text: "Reliable medication reminders" },
+      { text: "Companion care & emotional support" },
+      { text: "Personal hygiene & grooming respect" },
+      { text: "Light housekeeping & organization" },
     ],
   },
   {
-    name: "Commercial Office Cleaning",
-    description: "Professional janitorial services for offices and workspaces.",
+    name: "Commercial Cleaning",
+    description: "A productive, hygienic workspace for your team.",
+    buttonLabel: "Get a Commercial Quote",
+    slug: "limpeza-comercial",
     features: [
-      { text: "Workstation sanitization" },
-      { text: "Restroom deep cleaning" },
-      { text: "Floor care & polishing" },
-      { text: "Trash removal & recycling" },
-      { text: "After-hours cleaning services" },
+      { text: "Workstation & common area sanitization" },
+      { text: "Deep cleaning for restrooms & breakrooms" },
+      { text: "Professional floor care & polishing" },
+      { text: "Efficient trash removal & recycling" },
+      { text: "Flexible after-hours service options" },
     ],
   },
   {
-    name: "Post-Construction Cleaning",
-    description: "Detailed post-renovation and construction site cleaning.",
+    name: "Post-Construction",
+    description: "The final touch for your new or renovated space.",
+    buttonLabel: "Book Final Cleaning",
+    slug: "limpeza-pos-construcao",
     features: [
-      { text: "Debris removal" },
-      { text: "Fine dust elimination" },
-      { text: "Window & glass detailing" },
-      { text: "Surface polishing" },
-      { text: "Final inspection detailing" },
+      { text: "Heavy debris & construction dust removal" },
+      { text: "Detailed cleaning of crevices & corners" },
+      { text: "Window, glass, & mirror detailing" },
+      { text: "Surface polishing & material-specific care" },
+      { text: "Final inspection & move-in ready detailing" },
     ],
   }
 ];
@@ -101,16 +112,17 @@ const PricingCard = ({
       </div>
 
       {/* BOTÃO AGORA NO FINAL */}
-      <button
-        className={cn(
-          "w-full cursor-pointer mt-8 py-3 rounded-lg font-medium text-sm transition-all duration-200",
-          isActive
-            ? "bg-primary text-primary-foreground"
-            : "bg-secondary text-secondary-foreground border border-border hover:opacity-90"
-        )}
-      >
-        Get Started
-      </button>
+      <Link
+          href={`/services/${service.slug}`}
+          className={cn(
+            "w-full text-center cursor-pointer mt-8 py-3 rounded-lg font-medium text-sm transition-all duration-200 block",
+            isActive
+              ? "bg-primary text-primary-foreground"
+              : "bg-secondary text-secondary-foreground border border-border hover:opacity-90"
+          )}
+        >
+          {service.buttonLabel}
+        </Link>
     </div>
   );
 };
@@ -122,11 +134,10 @@ const PricingPage = () => {
     <section className="min-h-screen bg-background py-16 sm:py-24 px-4">
       <div className="max-w-6xl mx-auto text-center mb-12 sm:mb-16">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
-          Our Professional Services
+          Cleaning & Care Services in Massachusetts
         </h1>
         <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-sm sm:text-base">
-          Specialized cleaning and home care solutions tailored to residential
-          and commercial environments.
+          Professional, insured, and high-quality care for residential and commercial properties.
         </p>
       </div>
 

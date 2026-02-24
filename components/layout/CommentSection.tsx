@@ -7,33 +7,43 @@ interface Review {
   name: string;
   content: string;
   rating: number;
-  photoUrl?: string; //(Google API)
+  location: string;     // "Boston, MA"
+  profession: string;   // "Real Estate Agent"
+  photoUrl?: string;
 }
 
 const reviews: Review[] = [
   {
-    name: "Emily Johnson",
+    name: "Amanda R.",
     rating: 5,
+    location: "Worcester, MA",
+    profession: "Residential Client",
     content:
-      "Outstanding residential cleaning service. My home has never felt this fresh and organized.",
+      "EverCare completely transformed our home. The attention to detail is outstanding, and the team is always punctual and professional. It’s a relief knowing we can truly depend on them.",
   },
   {
-    name: "Michael Torres",
-    rating: 4,
+    name: "Jason M.",
+    rating: 5,
+    location: "Framingham, MA",
+    profession: "Homeowner",
     content:
-      "Professional and reliable commercial cleaning. Our workspace looks immaculate every day.",
+      "We’ve worked with other cleaning companies before, but EverCare truly stands out. Consistent, respectful, and incredibly thorough every visit. You can tell they take pride in their work.",
   },
   {
-    name: "Sarah Mitchell",
+    name: "Michael T.",
     rating: 5,
+    location: "Boston, MA",
+    profession: "Office Manager",
     content:
-      "Their post-construction cleaning exceeded expectations. Attention to detail is impressive.",
+      "Our office environment improved immediately after hiring EverCare. They maintain high sanitation standards and operate with true professionalism. I highly recommend them for any commercial property.",
   },
   {
-    name: "David Brown",
+    name: "Samantha L.",
     rating: 5,
+    location: "Cambridge, MA",
+    profession: "Retail Business Owner",
     content:
-      "Compassionate and professional home care support. Truly made a difference for our family.",
+      "Reliable, organized, and detail-oriented. EverCare keeps our retail space spotless and welcoming for customers every single day.",
   },
 ];
 
@@ -105,9 +115,14 @@ const ReviewCard = ({ review }: { review: Review }) => {
 
         {/* Nome + estrelas */}
         <div className="flex flex-col">
-          <span className="font-semibold text-foreground text-sm">
-            {review.name}
-          </span>
+          <div className="flex items-center gap-1 text-sm">
+            <span className="font-bold text-foreground">
+              {review.name}
+            </span>
+            <span className="italic text-muted-foreground">
+              – {review.location}
+            </span>
+          </div>
           <Stars rating={review.rating} />
         </div>
       </div>
@@ -116,6 +131,9 @@ const ReviewCard = ({ review }: { review: Review }) => {
       <p className="text-sm text-muted-foreground leading-relaxed">
         "{review.content}"
       </p>
+      <span className="text-xs text-muted-foreground/70 font-medium">
+        {review.profession}
+      </span>
     </div>
   );
 };
@@ -125,10 +143,10 @@ const TestimonialsSection = () => {
     <section className="py-20 bg-background">
       <div className="max-w-6xl mx-auto text-center mb-12 px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-          What Our Clients Say
+          Star Rated Cleaning & Care Services in Massachusetts
         </h2>
         <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-sm md:text-base">
-          Real feedback from residential, commercial, and home care clients.
+          Don’t just take our word for it. See why homeowners and businesses across Massachusetts trust EverCare for reliable, fully insured, high-standard service.
         </p>
       </div>
 

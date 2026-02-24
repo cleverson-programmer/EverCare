@@ -51,17 +51,17 @@ export default function ServicesMarquee() {
   return (
     <section className="w-full overflow-hidden bg-background">
       <div className="flex flex-col gap-4">
-        <Marquee reverse={false} pauseOnHover className="[--duration:20s]">
+        <Marquee reverse={false} pauseOnHover className="[--duration:40s]">
           {firstRow.map((s) => (
             <ServiceTag key={s.label} {...s} />
           ))}
         </Marquee>
-        <Marquee reverse={true} pauseOnHover className="[--duration:20s]">
+        <Marquee reverse={true} pauseOnHover className="[--duration:40s]">
           {secondRow.map((s) => (
             <ServiceTag key={s.label} {...s} />
           ))}
         </Marquee>
-        <Marquee reverse={false} pauseOnHover className="[--duration:20s]">
+        <Marquee reverse={false} pauseOnHover className="[--duration:40s]">
           {secondRow.map((s) => (
             <ServiceTag key={s.label} {...s} />
           ))}
