@@ -16,9 +16,9 @@ interface Props {
 }
 
 const trustBadges = [
-  { icon: Star, label: "4.9 de avaliação média" },
-  { icon: Shield, label: "Equipe verificada e treinada" },
-  { icon: Clock, label: "Pontualidade garantida" },
+  { icon: Star, label: "4.9 de avaliação média", color: "text-yellow-500" },
+  { icon: Shield, label: "Equipe verificada e treinada", color: "text-green-500" },
+  { icon: Clock, label: "Pontualidade garantida", color: "text-blue-500" },
 ];
 
 const containerVariants = {
@@ -94,12 +94,12 @@ export default function ServicePageClient({ service }: Props) {
               </motion.p>
 
               <motion.div variants={itemVariants} className="flex flex-wrap gap-3 mb-8">
-                {trustBadges.map(({ icon: Icon, label }) => (
+                {trustBadges.map(({ icon: Icon, label, color }) => (
                   <div
                     key={label}
                     className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground bg-card border border-border rounded-full px-3 py-1.5 shadow-sm"
                   >
-                    <Icon size={13} className={themeAccent} />
+                    <Icon size={13} className={color} />
                     {label}
                   </div>
                 ))}

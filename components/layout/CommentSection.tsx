@@ -85,13 +85,12 @@ const Stars = ({ rating }: { rating: number }) => {
     </div>
   );
 };
-
 const ReviewCard = ({ review }: { review: Review }) => {
   const initial = review.name.charAt(0).toUpperCase();
   const bgColor = getColorFromName(review.name);
 
   return (
-    <div className="w-80 rounded-xl border border-border bg-card p-6 shadow-sm space-y-4">
+    <div className="w-80 rounded-xl border border-border bg-card p-6 shadow-sm space-y-4 font-sans">
       
       {/* HEADER */}
       <div className="flex items-center gap-3">
@@ -115,8 +114,8 @@ const ReviewCard = ({ review }: { review: Review }) => {
 
         {/* Nome + estrelas */}
         <div className="flex flex-col">
-          <div className="flex items-center gap-1 text-sm">
-            <span className="font-bold text-foreground">
+          <div className="flex items-center gap-1 text-sm leading-snug">
+            <span className="font-semibold text-foreground tracking-tight">
               {review.name}
             </span>
             <span className="italic text-muted-foreground">
@@ -128,10 +127,11 @@ const ReviewCard = ({ review }: { review: Review }) => {
       </div>
 
       {/* Comentário */}
-      <p className="text-sm text-muted-foreground leading-relaxed">
+      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
         "{review.content}"
       </p>
-      <span className="text-xs text-muted-foreground/70 font-medium">
+
+      <span className="text-xs text-muted-foreground/70 font-medium tracking-wide">
         {review.profession}
       </span>
     </div>
@@ -140,40 +140,40 @@ const ReviewCard = ({ review }: { review: Review }) => {
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background font-sans">
       <div className="max-w-6xl mx-auto text-center mb-12 px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight text-foreground">
           Star Rated Cleaning & Care Services in Massachusetts
         </h2>
-        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-sm md:text-base">
+
+        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
           Don’t just take our word for it. See why homeowners and businesses across Massachusetts trust EverCare for reliable, fully insured, high-standard service.
         </p>
       </div>
 
-        <div className="relative flex flex-col gap-6 overflow-hidden">
+      <div className="relative flex flex-col gap-6 overflow-hidden">
         {/* Linha 1 - NORMAL */}
         <Marquee
-            reverse={false}
-            pauseOnHover
-            className="[--duration:35s]"
+          reverse={false}
+          pauseOnHover
+          className="[--duration:35s]"
         >
-            {reviews.map((review, i) => (
+          {reviews.map((review, i) => (
             <ReviewCard key={i} review={review} />
-            ))}
+          ))}
         </Marquee>
 
         {/* Linha 2 - REVERSE */}
         <Marquee
-            reverse={true}
-            pauseOnHover
-            className="[--duration:45s]"
+          reverse={true}
+          pauseOnHover
+          className="[--duration:45s]"
         >
-            {reviews.map((review, i) => (
+          {reviews.map((review, i) => (
             <ReviewCard key={`reverse-${i}`} review={review} />
-            ))}
+          ))}
         </Marquee>
-        </div>
-
+      </div>
     </section>
   );
 };

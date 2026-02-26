@@ -171,7 +171,11 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           {/* O InteractiveHoverButton costuma ter cores próprias, mas ele se destacará bem no bg-background escuro */}
           <div className="hidden sm:block">
-            <InteractiveHoverButton>Get a Quote</InteractiveHoverButton>
+            <Link href="/services">
+              <InteractiveHoverButton>
+                Get a Quote
+              </InteractiveHoverButton>
+            </Link>
           </div>
 
           <div className="hidden  lg:flex items-center gap-3">

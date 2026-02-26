@@ -37,7 +37,7 @@ const FAQSection = () => {
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
         {/* Left - Title */}
         <div>
-          <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground leading-tight">
             Frequently asked
             <br />
             questions
@@ -57,16 +57,18 @@ const FAQSection = () => {
                 ) : (
                   <Plus className="h-4 w-4 shrink-0 text-primary" />
                 )}
-                <span className="text-sm font-medium text-foreground">
+
+                <span className="text-base font-medium text-foreground leading-snug">
                   {faq.question}
                 </span>
               </button>
+
               <div
                 className={`overflow-hidden transition-all duration-300 ${
                   openIndex === index ? "max-h-40 pb-5" : "max-h-0"
                 }`}
               >
-                <p className="pl-8 text-sm text-muted-foreground">
+                <p className="pl-8 text-sm md:text-base text-muted-foreground leading-relaxed">
                   {faq.answer}
                 </p>
               </div>

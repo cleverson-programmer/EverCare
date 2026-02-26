@@ -1,51 +1,56 @@
-"use client";
-import {Facebook, Instagram } from "lucide-react";
-import Image from "next/image";
+"use client"
 
-const footerLinks = ["Home", "Services", "About", "Contact"];
+import Link from "next/link"
+import { Facebook, Instagram } from "lucide-react"
+import Image from "next/image"
+
+const footerLinks = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+]
 
 const socialLinks = [
   { icon: Facebook, href: "#" },
   { icon: Instagram, href: "#" },
-];
+]
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-footer text-footer-foreground">
+    <footer className="bg-background text-foreground">
       <div className="max-w-5xl mx-auto px-6 py-12">
 
         {/* ================= DESKTOP ================= */}
         <div className="hidden sm:block">
 
           {/* Logo */}
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <div className="w-32 h-32 rounded-md flex items-center justify-center">
-              <Image
-                src="/assets/images/logo.svg"
-                alt="EverCare Logo"
-                width={128}
-                height={128}
-              />
-            </div>
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/assets/images/logo.svg"
+              alt="EverCare Logo"
+              width={120}
+              height={120}
+            />
           </div>
 
           {/* Nav Links */}
-          <nav className="flex flex-wrap items-center justify-center gap-6 mb-8">
+          <nav className="flex flex-wrap justify-center gap-8 mb-10">
             {footerLinks.map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="text-sm text-footer-muted transition-colors"
+              <Link
+                key={link.label}
+                href={link.href}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
               >
-                {link}
-              </a>
+                {link.label}
+              </Link>
             ))}
           </nav>
 
-          <div className="border-t border-dashed border-footer-border mb-6" />
+          <div className="border-t border-border mb-6" />
 
           <div className="flex items-center justify-between">
-            <p className="text-sm text-footer-muted">
+            <p className="text-sm text-muted-foreground">
               © 2026 EverCare. All Rights Reserved.
             </p>
 
@@ -54,70 +59,77 @@ const Footer = () => {
                 <a
                   key={i}
                   href={href}
-                  className="text-footer-muted transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
                   <Icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
           </div>
+
+          {/* Novo parágrafo centralizado */}
+          <p className="mt-6 text-center text-xs text-muted-foreground">
+            Created by cleverson.github@gmail.com
+          </p>
         </div>
 
-        {/* ================= MOBILE ≤ 430px ================= */}
+        {/* ================= MOBILE ================= */}
         <div className="block sm:hidden">
 
-          <div className="flex w-full justify-evenly gap-8 mb-8">
+          <div className="flex flex-col items-center gap-6 mb-8">
 
-                <div className="flex flex-col gap-4 items-center text-center">
-                  {footerLinks.map((link) => (
-                    <a
-                      key={link}
-                      href="#"
-                      className="text-sm text-footer-muted transition-colors"
-                    >
-                      {link}
-                    </a>
-                  ))}
-                </div>
+            <div className="flex flex-col gap-4 items-center">
+              {footerLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
 
-                <div className="flex flex-col gap-4 items-center justify-between">
-                  {socialLinks.map(({ icon: Icon, href }, i) => (
-                    <a
-                      key={i}
-                      href={href}
-                      className="text-footer-muted transition-colors"
-                    >
-                      <Icon className="w-5 h-5" />
-                    </a>
-                  ))}
-                </div>
-          </div>
-
-          {/* Linha divisória */}
-          <div className="border-t border-dashed border-footer-border mb-6" />
-
-          {/* Linha inferior */}
-          <div className="flex items-center justify-between">
-
-            <p className="text-xs text-footer-muted">
-              © 2026 EverCare. All Rights Reserved.
-            </p>
-
-            <div className="w-16 h-16">
-              <Image
-                src="/assets/images/logo.svg"
-                alt="EverCare Logo"
-                width={64}
-                height={64}
-              />
+            <div className="flex gap-6">
+              {socialLinks.map(({ icon: Icon, href }, i) => (
+                <a
+                  key={i}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
             </div>
 
           </div>
+
+          <div className="border-t border-border mb-6" />
+
+          <div className="flex items-center justify-between mb-4">
+            <p className="text-xs text-muted-foreground">
+              © 2026 EverCare. All Rights Reserved.
+            </p>
+
+            <Image
+              src="/assets/images/logo.svg"
+              alt="EverCare Logo"
+              width={56}
+              height={56}
+            />
+          </div>
+
+          {/* Novo parágrafo centralizado */}
+          <p className="text-center text-xs text-muted-foreground">
+            Created by cleverson.github@gmail.com
+          </p>
         </div>
 
       </div>
     </footer>
-  );
-};
-
-export default Footer;
+  )
+}
