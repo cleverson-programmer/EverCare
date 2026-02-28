@@ -17,7 +17,7 @@ export type ServiceTheme = "cleaning" | "homecare";
 export interface ServiceItem {
   icon: LucideIcon;
   title: string;
-  description: string;
+  description: string[];
   theme: ServiceTheme;
 }
 
@@ -44,25 +44,25 @@ export const servicesData: ServiceData[] = [
       {
         icon: Sparkles,
         title: "Limpeza Completa",
-        description: "Higienização de todos os cômodos, superfícies, janelas e detalhes da residência.",
+        description: ["Higienização de todos os cômodos, superfícies, janelas e detalhes da residência."],
         theme: "cleaning",
       },
       {
         icon: Wind,
         title: "Limpeza Pós-Obra",
-        description: "Remoção de resíduos de construção, poeira fina e limpeza especializada pós-reforma.",
+        description: ["Remoção de resíduos de construção, poeira fina e limpeza especializada pós-reforma."],
         theme: "cleaning",
       },
       {
         icon: Layers,
         title: "Limpeza de Piso",
-        description: "Cristalização, polimento e tratamento especializado para pisos cerâmicos, laminados e vinílicos.",
+        description: ["Cristalização, polimento e tratamento especializado para pisos cerâmicos, laminados e vinílicos."],
         theme: "cleaning",
       },
       {
         icon: Sofa,
         title: "Higienização de Estofados",
-        description: "Limpeza a seco e higienização profunda de sofás, cadeiras, tapetes e colchões.",
+        description: ["Limpeza a seco e higienização profunda de sofás, cadeiras, tapetes e colchões."],
         theme: "cleaning",
       },
     ],
@@ -79,25 +79,25 @@ export const servicesData: ServiceData[] = [
       {
         icon: Building2,
         title: "Limpeza de Escritório",
-        description: "Manutenção diária ou periódica de ambientes corporativos, banheiros e copa.",
+        description: ["Manutenção diária ou periódica de ambientes corporativos, banheiros e copa."],
         theme: "cleaning",
       },
       {
         icon: Sparkles,
         title: "Limpeza de Condomínio",
-        description: "Áreas comuns, garagens, escadas e jardins com planos mensais personalizados.",
+        description: ["Áreas comuns, garagens, escadas e jardins com planos mensais personalizados."],
         theme: "cleaning",
       },
       {
         icon: Home,
         title: "Limpeza de Clínicas",
-        description: "Higienização especializada com foco em biossegurança e conformidade sanitária.",
+        description: ["Higienização especializada com foco em biossegurança e conformidade sanitária."],
         theme: "cleaning",
       },
       {
         icon: Wind,
         title: "Limpeza de Vidros",
-        description: "Lavagem externa e interna de fachadas envidraçadas com equipamentos especializados.",
+        description: ["Lavagem externa e interna de fachadas envidraçadas com equipamentos especializados."],
         theme: "cleaning",
       },
     ],
@@ -114,25 +114,25 @@ export const servicesData: ServiceData[] = [
       {
         icon: Building2,
         title: "Limpeza de Predios",
-        description: "Remoção completa de resíduos de construção, poeira e detritos em ambientes recém-construídos.",
+        description: ["Remoção completa de resíduos de construção, poeira e detritos em ambientes recém-construídos."],
         theme: "cleaning",
       },
       {
         icon: Sparkles,
         title: "Limpeza de Condomínio",
-        description: "Áreas comuns, garagens, escadas e jardins com planos mensais personalizados.",
+        description: ["Áreas comuns, garagens, escadas e jardins com planos mensais personalizados."],
         theme: "cleaning",
       },
       {
         icon: Home,
         title: "Limpeza de Clínicas",
-        description: "Higienização especializada com foco em biossegurança e conformidade sanitária.",
+        description: ["Higienização especializada com foco em biossegurança e conformidade sanitária."],
         theme: "cleaning",
       },
       {
         icon: Wind,
         title: "Limpeza de Vidros",
-        description: "Lavagem externa e interna de fachadas envidraçadas com equipamentos especializados.",
+        description: ["Lavagem externa e interna de fachadas envidraçadas com equipamentos especializados."],
         theme: "cleaning",
       },
     ],
@@ -149,25 +149,25 @@ export const servicesData: ServiceData[] = [
       {
         icon: Heart,
         title: "Cuidados Básicos",
-        description: "Higiene pessoal, alimentação assistida, locomoção segura e administração de medicamentos.",
+        description: ["Higiene pessoal, alimentação assistida, locomoção segura e administração de medicamentos."],
         theme: "homecare",
       },
       {
         icon: Activity,
         title: "Procedimentos de Enfermagem",
-        description: "Curativos, controle de sinais vitais, medicação endovenosa e suporte clínico domiciliar.",
+        description: ["Curativos, controle de sinais vitais, medicação endovenosa e suporte clínico domiciliar."],
         theme: "homecare",
       },
       {
         icon: Users,
         title: "Acompanhamento Presencial",
-        description: "Cuidador disponível em turnos diurnos, noturnos ou 24h para máxima segurança.",
+        description: ["Cuidador disponível em turnos diurnos, noturnos ou 24h para máxima segurança."],
         theme: "homecare",
       },
       {
         icon: Brain,
         title: "Suporte Cognitivo",
-        description: "Atividades estimulantes, convívio social e apoio emocional para saúde mental e cognitiva.",
+        description: ["Atividades estimulantes, convívio social e apoio emocional para saúde mental e cognitiva."],
         theme: "homecare",
       },
     ],
@@ -184,25 +184,25 @@ export const servicesData: ServiceData[] = [
       {
         icon: Activity,
         title: "Curativo e Cicatrização",
-        description: "Troca de curativos complexos, ostomias e feridas crônicas com técnica estéril.",
+        description: ["Troca de curativos complexos, ostomias e feridas crônicas com técnica estéril."],
         theme: "homecare",
       },
       {
         icon: Heart,
         title: "Monitoramento Clínico",
-        description: "Aferição de pressão, glicemia, saturação e relatórios periódicos ao médico.",
+        description: ["Aferição de pressão, glicemia, saturação e relatórios periódicos ao médico."],
         theme: "homecare",
       },
       {
         icon: Users,
         title: "Acompanhamento Pós-Cirúrgico",
-        description: "Suporte especializado na recuperação após cirurgias, com cuidados personalizados.",
+        description: ["Suporte especializado na recuperação após cirurgias, com cuidados personalizados."],
         theme: "homecare",
       },
       {
         icon: Brain,
         title: "Suporte Multidisciplinar",
-        description: "Nutrição, fisioterapia e fonoaudiologia integrados ao plano de cuidados domiciliar.",
+        description: ["Nutrição, fisioterapia e fonoaudiologia integrados ao plano de cuidados domiciliar."],
         theme: "homecare",
       },
     ],
