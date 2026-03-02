@@ -1,7 +1,6 @@
 "use client";
 import { notFound } from "next/navigation";
 import { getServiceBySlug } from "@/components/data/services";
-import ServicePageClient from "@/components/layout/ServicePageClient";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/layout/Footer";
 

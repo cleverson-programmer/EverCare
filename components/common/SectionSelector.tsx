@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Sparkles, HeartPulse } from "lucide-react";
 
@@ -64,26 +66,26 @@ const SectionSelector = ({ selected, onSelect }: SectionSelectorProps) => {
           onClick={() => onSelect(selected === "homecare" ? null : "homecare")}
           className={`flex-1 rounded-xl p-8 transition-all duration-300 border-2 cursor-pointer group ${
             selected === "homecare"
-              ? "bg-secondary border-secondary shadow-card-hover"
+              ? "bg-homecare border-homecare shadow-card-hover"
               : "bg-card border-border hover:border-homecare/50 shadow-card hover:shadow-card-hover"
           }`}
         >
           <HeartPulse
             className={`mx-auto mb-4 ${
-              selected === "homecare" ? "text-secondary-foreground" : "text-homecare"
+              selected === "homecare" ? "text-homecare-foreground" : "text-homecare"
             }`}
             size={48}
           />
           <h2
             className={`text-2xl font-bold mb-2 ${
-              selected === "homecare" ? "text-secondary-foreground" : "text-foreground"
+              selected === "homecare" ? "text-homecare-foreground" : "text-foreground"
             }`}
           >
             Home Care
           </h2>
           <p
             className={`text-sm ${
-              selected === "homecare" ? "text-secondary-foreground/80" : "text-muted-foreground"
+              selected === "homecare" ? "text-homecare-foreground/80" : "text-muted-foreground"
             }`}
           >
             Professional In-Home Care You Can Trust in Massachusetts. Compassionate, dependable support designed to help seniors live safely and comfortably at home.
